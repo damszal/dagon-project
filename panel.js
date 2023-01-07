@@ -6,11 +6,14 @@ const picked = document.querySelector('.picked')
 const iDescription = document.querySelector('.item-description')
 const iCode = document.querySelector('.item-code')
 const iProperty = document.querySelector('.item-property')
+const img = document.querySelector(".i-img")
+
 
 console.log(qToPick)
 console.log(iDescription)
 console.log(iCode)
 console.log(iProperty)
+console.log(img.src)
 
 logOut.addEventListener('click', (e)=>{
     localStorage.removeItem("item")
@@ -32,6 +35,7 @@ const order1 = {
     description : "mata fitness",
     code : "TPE 0,6cm",
     property : "jasnoniebieska",
+    img: "assets/tpe0-6.jpg",
 };
 
 const order2 = {
@@ -39,6 +43,8 @@ const order2 = {
     description : "mata fitness",
     code : "NBR 1,5cm",
     property : "żółta",
+    img: "assets/nbr1-5.jpg",
+    
 }
 
 const order3 = {
@@ -46,6 +52,8 @@ const order3 = {
     description : "mata fitness",
     code : "NBR 1,5cm",
     property : "z otworami czarna",
+    img: "assets/nbr1-5z-otworami.jpg",
+
 }
 const orders = [order1,order2,order3]
 
@@ -60,5 +68,6 @@ scanBtn.addEventListener('click', (e)=> {
         iCode.innerHTML = orders[counter].code;
         iProperty.innerHTML = orders[counter].property
         qToPick.innerHTML = orders[counter].toPick;
+        img.src = orders[counter].img
     }
 })

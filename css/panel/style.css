@@ -1,3 +1,8 @@
+img{
+    max-height: 250px;
+    border: 2px solid black;
+}
+
 
 .logOut {
     position: absolute;
@@ -22,6 +27,23 @@
 
 }
 
+.error-btn{
+    background-color: rgb(210, 151, 163);
+    height: 50px;
+    width: 100px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+    border: 1px solid black;
+
+    position: absolute;
+    right: 150px;
+
+    cursor: pointer;
+}
 
 .pick-section {
     width: 100vw;

@@ -1,5 +1,6 @@
 const logOut = document.querySelector('.logOut')
 const scanBtn = document.querySelector('.scan-btn')
+const errBtn = document.querySelector(".error-btn")
 
 const qToPick = document.querySelector('.qToPick')
 const picked = document.querySelector('.picked')
@@ -71,3 +72,22 @@ scanBtn.addEventListener('click', (e)=> {
         img.src = orders[counter].img
     }
 })
+
+//*********************************************************************
+// TEMPORARY SOUND EFFECT
+
+function playError(){
+    let audio = new Audio("audio/error.wav");
+    audio.play()
+}
+
+errBtn.addEventListener('click',playError);
+
+function playPick(){
+    let audio = new Audio("audio/pick.wav");
+    audio.play()
+}
+
+scanBtn.addEventListener('click',playPick);
+
+//***************************************************************************** */

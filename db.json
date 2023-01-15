@@ -1,28 +1,38 @@
 {
-    "orders": [
-        { 
-        "id": 1, 
-        "toPick": 5,
-        "description": "mata fitness",
-        "code": "TPE 0,6cm",
-        "property" : "jasnoniebieska",
-        "img": "assets/tpe0-6.jpg"
-        },
-        { 
-        "id": 2, 
-        "toPick": 3,
-        "description": "mata fitness",
-        "code": "NBR 1,5cm",
-        "property" : "żółta",
-        "img": "assets/nbr1-5.jpg"
-        },
-        { 
-        "id": 3, 
-        "toPick": 3,
-        "description": "mata fitness",
-        "code": "NBR 1,5cm",
-        "property" : "z otworami czarna",
-        "img": "assets/nbr1-5z-otworami.jpg"
-        }
-    ]
+  "orders": [
+    {
+      "id": 1,
+      "toPick": 5,
+      "description": "mata fitness",
+      "code": "TPE 0,6cm",
+      "property": "jasnoniebieska",
+      "img": "assets/tpe0-6.jpg"
+    },
+    {
+      "id": 2,
+      "toPick": 3,
+      "description": "mata fitness",
+      "code": "NBR 1,5cm",
+      "property": "żółta",
+      "img": "assets/nbr1-5.jpg"
+    },
+    {
+      "id": 3,
+      "toPick": 3,
+      "description": "mata fitness",
+      "code": "NBR 1,5cm",
+      "property": "z otworami czarna",
+      "img": "assets/nbr1-5z-otworami.jpg"
+    },
+    {
+      "itemTitle": "12",
+      "itemBarcode": "32",
+      "id": 4
+    },
+    {
+      "itemTitle": "piłka",
+      "itemBarcode": "3456",
+      "id": 5
+    }
+  ]
 }

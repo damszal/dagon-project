@@ -23,21 +23,6 @@
       "code": "NBR 1,5cm",
       "property": "z otworami czarna",
       "img": "assets/nbr1-5z-otworami.jpg"
-    },
-    {
-      "itemTitle": "12",
-      "itemBarcode": "32",
-      "id": 4
-    },
-    {
-      "itemTitle": "piłka",
-      "itemBarcode": "3456",
-      "id": 5
-    },
-    {
-      "itemTitle": "",
-      "itemBarcode": "",
-      "id": 6
     }
   ],
   "inbound-items": [

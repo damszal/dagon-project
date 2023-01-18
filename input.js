@@ -22,5 +22,6 @@ function send() {
 add.addEventListener("submit", e=>{
     e.preventDefault();
     send();
+    console.log("dupa")
 })
 console.log(add)

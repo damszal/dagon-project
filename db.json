@@ -33,6 +33,16 @@
       "itemTitle": "piłka",
       "itemBarcode": "3456",
       "id": 5
+    },
+    {
+      "itemTitle": "",
+      "itemBarcode": "",
+      "id": 6
+    }
+  ],
+  "inbound-items": [
+    {
+      "id": 1
     }
   ]
 }

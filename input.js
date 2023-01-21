@@ -8,8 +8,8 @@ const add = document.getElementById("form")
 const addReceive = document.getElementById("receive-form")
 
 function send() {
-    var itemTitle = document.getElementById("item-title").value;
-    var itemBarcode = document.getElementById("item-barcode").value;
+    let itemTitle = document.getElementById("item-title").value;
+    let itemBarcode = document.getElementById("item-barcode").value;
     let itemDescription = document.getElementById("item-description".value);
 
     const json = {
@@ -24,24 +24,43 @@ function send() {
         },
         body: JSON.stringify(json),
         });
-        }
+    }
 
         
         
-        add.addEventListener("submit", e=>{
-            e.preventDefault();
-            send();
-        })
-        console.log(addReceive)
+    add.addEventListener("submit", e=>{
+        e.preventDefault();
+        send();
+    })
+    console.log(addReceive)
         
 
     addReceive.addEventListener("submit", e=>{
         e.preventDefault();
+
+        let itemName = document.getElementById("item-name").value;
+        let itemCategory = document.getElementById("item-category").value;
+        let itemDescription = document.getElementById("item-description").value;
+        let itemBarcode = document.getElementById("item-barcode").value;
+        let itemHeight = document.getElementById("item-height").value;
+        let itemWidth = document.getElementById("item-width").value;
+        let itemLength = document.getElementById("item-length").value;
+        let itemWeight = document.getElementById("item-weight").value;
+
+    
+
         let d = new Date().getTime().toString();
-        console.log(d)
         
         const jsonID = {
             id: d,
+            itemName: itemName,
+            itemCategory: itemCategory,
+            itemDescription: itemDescription,
+            itemBarcode : itemBarcode,
+            itemHeight : itemHeight,
+            itemWidth : itemWidth,
+            itemLength : itemLength,
+            itemWeight : itemWeight,
         };
 
         fetch("http://localhost:3000/inbound-items", {

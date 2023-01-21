@@ -26,6 +26,38 @@
     }
   ],
   "inbound-items": [
-
+    {
+      "id": "1674325501968",
+      "itemName": "pimafucort",
+      "itemCategory": "medicine",
+      "itemDescription": "ointment",
+      "itemBarcode": "5929992210015",
+      "itemHeight": "2",
+      "itemWidth": "2.5",
+      "itemLength": "9",
+      "itemWeight": "0.20"
+    },
+    {
+      "id": "1674332273380",
+      "itemName": "Oktaseptal",
+      "itemCategory": "medicine",
+      "itemDescription": "spray",
+      "itemBarcode": "5905235400013",
+      "itemHeight": "11",
+      "itemWidth": "3",
+      "itemLength": "3",
+      "itemWeight": "0.8"
+    },
+    {
+      "id": "1674332414338",
+      "itemName": "Clindamycin",
+      "itemCategory": "medicine",
+      "itemDescription": "pills",
+      "itemBarcode": "5909991001537",
+      "itemHeight": "4",
+      "itemWidth": "6",
+      "itemLength": "1",
+      "itemWeight": "0.8"
+    }
   ]
 }

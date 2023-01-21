@@ -5,7 +5,7 @@
     "uniqid": "^5.4.0"
   },
   "scripts": {
-    "build": "browserify input.js -o bundle.js",
+    "build": "browserify receive/input.js -o receive/bundle.js",
     "datalive" : "json-server --watch db.json"
   }
 }

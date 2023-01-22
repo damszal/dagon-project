@@ -1,0 +1,8 @@
+body{
+    background-color: rebeccapurple;
+}
+
+.item-container{
+    display: flex;
+    align-items: center;
+}

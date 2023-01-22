@@ -28,7 +28,7 @@
   "inbound-items": [
     {
       "id": "1674325501968",
-      "itemName": "pimafucort",
+      "itemName": "Pimafucort",
       "itemCategory": "medicine",
       "itemDescription": "ointment",
       "itemBarcode": "5929992210015",
@@ -58,6 +58,30 @@
       "itemWidth": "6",
       "itemLength": "1",
       "itemWeight": "0.8"
+    },
+    {
+      "id": "1674416128083",
+      "itemName": "Star wars",
+      "itemCategory": "movie",
+      "itemDescription": "science-fiction",
+      "itemBarcode": "112233445566",
+      "itemHeight": "20",
+      "itemWidth": "12",
+      "itemLength": "2",
+      "itemWeight": "1"
+    }
+  ],
+  "topick": [
+    {
+      "id": "1674416128083",
+      "itemName": "Star wars",
+      "itemCategory": "movie",
+      "itemDescription": "science-fiction",
+      "itemBarcode": "112233445566",
+      "itemHeight": "20",
+      "itemWidth": "12",
+      "itemLength": "2",
+      "itemWeight": "1"
     }
   ]
 }

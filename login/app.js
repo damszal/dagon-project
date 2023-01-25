@@ -19,7 +19,6 @@ const barcodeExamp = {
   barcode : 1234567,
 }
 
-console.log(barcodeForm[0].value)
 
 barcodeForm.addEventListener("submit", e => {
   e.preventDefault();
@@ -27,15 +26,34 @@ barcodeForm.addEventListener("submit", e => {
   {
     localStorage.setItem("item", JSON.stringify(barcodeExamp))
   console.log("zalogowałeś się!")
-  window.location.replace("/panel.htm");
+  window.location.replace("../pick/panel.htm");
   console.log("zalogowałeś się!jjj")
   }
 }
 );
 
-// localStorage.setItem("item", JSON.stringify(barcodeExamp))
+//-----------------------------------------------------------------------
+
+const user1 = {
+  login : "johncarmack",
+  password : "carmack123" 
+};
+const user2 = {
+  login : "johnromero",
+  password : "romero123" 
+};
+const user3 = {
+  login : "jamesgosling",
+  password : "gosling123" 
+};
 
 
-// const item = JSON.parse(localStorage.getItem("item"));
-// console.log(item);
-// console.log(barcodeExamp)
+const dizzy = "dizzy"
+
+
+window.addEventListener('DOMContentLoaded', (e)=>{
+  localStorage.clear();
+  localStorage.setItem("user1", JSON.stringify(user1));
+  localStorage.setItem("user2", JSON.stringify(user2));
+  localStorage.setItem("user3", JSON.stringify(user3));
+})

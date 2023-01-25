@@ -1,11 +1,13 @@
 {
   "dependencies": {
     "browserify": "^17.0.0",
+    "crypto-js": "^4.1.1",
     "json-server": "^0.17.1",
     "uniqid": "^5.4.0"
   },
   "scripts": {
-    "build": "browserify receive/input.js -o receive/bundle.js",
-    "datalive" : "json-server --watch db.json"
+    "buildrec": "browserify receive/input.js -o receive/bundle.js",
+    "buildlogin": "browserify login/app.js -o login/bundle.js",
+    "datalive": "json-server --watch db.json"
   }
 }

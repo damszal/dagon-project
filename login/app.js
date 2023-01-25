@@ -1,3 +1,5 @@
+var CryptoJS = require("crypto-js");
+
 console.log("1234567")
 let barcodeForm = document.querySelector(".barcode-form")
 let passwordForm = document.querySelector(".password-form")
@@ -48,12 +50,21 @@ const user3 = {
 };
 
 
-const dizzy = "dizzy"
+const user1Ecrypt = CryptoJS.AES.encrypt(JSON.stringify(user1), 'dagon1').toString();
+const user2Ecrypt = CryptoJS.AES.encrypt(JSON.stringify(user2), 'dagon2').toString();
+const user3Ecrypt = CryptoJS.AES.encrypt(JSON.stringify(user3), 'dagon3').toString();
+
+// var bytes1  = CryptoJS.AES.decrypt(user1Ecrypt, 'dagon');
+// var decryptedData1 = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
+
+// console.log(decryptedData)
+// console.log(ciphertext)
 
 
 window.addEventListener('DOMContentLoaded', (e)=>{
   localStorage.clear();
-  localStorage.setItem("user1", JSON.stringify(user1));
-  localStorage.setItem("user2", JSON.stringify(user2));
-  localStorage.setItem("user3", JSON.stringify(user3));
+  localStorage.setItem("user1", JSON.stringify(user1Ecrypt));
+  localStorage.setItem("user2", JSON.stringify(user2Ecrypt));
+  localStorage.setItem("user3", JSON.stringify(user3Ecrypt));
+
 })

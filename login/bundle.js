@@ -1,6 +1,4 @@
 (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
-
-},{}],2:[function(require,module,exports){
 var CryptoJS = require("crypto-js");
 
 console.log("1234567")
@@ -29,10 +27,12 @@ barcodeForm.addEventListener("submit", e => {
   e.preventDefault();
   if(barcodeForm[0].value == barcodeExamp.barcode) 
   {
-    localStorage.setItem("item", JSON.stringify(barcodeExamp))
-  console.log("zalogowałeś się!")
+    document.cookie = "logged = yes";
+    localStorage.clear();
+  //localStorage.setItem("item", JSON.stringify(barcodeExamp))
+  //console.log("zalogowałeś się!")
   window.location.replace("../pick/panel.htm");
-  console.log("zalogowałeś się!jjj")
+  //console.log("zalogowałeś się!jjj")
   }
 }
 );
@@ -55,7 +55,7 @@ const user3 = {
 
 const user1Ecrypt = CryptoJS.AES.encrypt(JSON.stringify(user1), 'dagon1').toString();
 const user2Ecrypt = CryptoJS.AES.encrypt(JSON.stringify(user2), 'dagon2').toString();
-const user3Ecrypt = CryptoJS.AES.encrypt(JSON.stringify(user3), 'dagon3').toString();
+//const user3Ecrypt = CryptoJS.AES.encrypt(JSON.stringify(user3), 'dagon3').toString();
 
 // var bytes1  = CryptoJS.AES.decrypt(user1Ecrypt, 'dagon');
 // var decryptedData1 = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
@@ -65,13 +65,14 @@ const user3Ecrypt = CryptoJS.AES.encrypt(JSON.stringify(user3), 'dagon3').toStri
 
 
 window.addEventListener('DOMContentLoaded', (e)=>{
-  localStorage.clear();
-  localStorage.setItem("user1", JSON.stringify(user1Ecrypt));
-  localStorage.setItem("user2", JSON.stringify(user2Ecrypt));
-  localStorage.setItem("user3", JSON.stringify(user3Ecrypt));
+  localStorage.setItem("EncryptedUser1", JSON.stringify(user1Ecrypt));
+  localStorage.setItem("EncryptedUser2", JSON.stringify(user2Ecrypt));
+  localStorage.setItem("DecryptedUser3", JSON.stringify(user3));
 
 })
-},{"crypto-js":12}],3:[function(require,module,exports){
+},{"crypto-js":12}],2:[function(require,module,exports){
+
+},{}],3:[function(require,module,exports){
 ;(function (root, factory, undef) {
 	if (typeof exports === "object") {
 		// CommonJS
@@ -2007,7 +2008,7 @@ window.addEventListener('DOMContentLoaded', (e)=>{
 
 }));
 }).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"crypto":1}],6:[function(require,module,exports){
+},{"crypto":2}],6:[function(require,module,exports){
 ;(function (root, factory) {
 	if (typeof exports === "object") {
 		// CommonJS
@@ -6907,4 +6908,4 @@ window.addEventListener('DOMContentLoaded', (e)=>{
 	return CryptoJS;
 
 }));
-},{"./core":5}]},{},[2]);
+},{"./core":5}]},{},[1]);

@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/form.css">
     <link rel="stylesheet" href="/css/tags.css">
     <link rel="stylesheet" href="/css/switch.css">
     <title>WELCOME IN THE DAGON PROJECT</title>
@@ -26,13 +26,13 @@
     <div class="login__container">
         <form action="" class="barcode-form">
             <label for="barcode">Scan your barcode:</label><br>
-            <input type="password"  id="barcode" name="barcode" maxlength="11"><br>  <!--maxlenght must be hidden for user  -->
+            <input type="password"  id="barcode" name="barcode" maxlength="11" required><br>  <!--maxlenght must be hidden for user  -->
         </form>
         <form action="" class="password-form">
             <label for="login">Type your login:</label><br>
-            <input type="text" id="login" name="login" maxlength="10"><br>
+            <input type="text" id="login" name="login" maxlength="15" required><br>
             <label for="password">Type your password:</label><br>
-            <input type="password" id="password" name="password" maxlength="10"><br>
+            <input type="password" id="password" name="password" maxlength="12" required><br>
             <input type="submit" value="LOG IN" class="login-btn">
         </form>
     </div>

@@ -1,3 +1,6 @@
+
+
+
 var CryptoJS = require("crypto-js");
 
 console.log("1234567")
@@ -67,5 +70,5 @@ window.addEventListener('DOMContentLoaded', (e)=>{
   localStorage.setItem("EncryptedUser1", JSON.stringify(user1Ecrypt));
   localStorage.setItem("EncryptedUser2", JSON.stringify(user2Ecrypt));
   localStorage.setItem("DecryptedUser3", JSON.stringify(user3));
-
+  document.cookie = "logged= ; expires = Thu, 01 Jan 1970 00:00:00 GMT"
 })

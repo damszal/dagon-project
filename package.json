@@ -7,7 +7,10 @@
   },
   "scripts": {
     "buildrec": "browserify receive/input.js -o receive/bundle.js",
-    "buildlogin": "browserify login/app.js -o login/bundle.js",
+    "buildlogin": "browserify login/app.js  -p esmify > login/bundle.js",
     "datalive": "json-server --watch db.json"
+  },
+  "devDependencies": {
+    "esmify": "^2.1.1"
   }
 }

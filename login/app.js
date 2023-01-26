@@ -1,6 +1,60 @@
+import { initializeApp } from "firebase/app";
+import { getDatabase,ref,set,child,get } from "firebase/database";
+import {firebaseConfig} from "../data"
+
+const user1 = {
+  login : "johncarmack",
+  password : "carmack123" 
+};
+const user2 = {
+  login : "johnromero",
+  password : "romero123" 
+};
+const user3 = {
+  login : "jamesgosling",
+  password : "gosling123" 
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+
+
+// Initialize Realtime Database and get a reference to the service
+const database = getDatabase(app);
+
+console.log(firebaseConfig)
+
+function writeUserData(userId, login,password) {
+  const db = getDatabase();
+  set(ref(db, 'users/' + userId), {
+    login: login,
+    password: password
+  });
+}
+
+writeUserData("admin","admin","admin123")
+writeUserData("user1",user1.login, user1.password);
+writeUserData("user2",user2.login, user2.password);
+writeUserData("user3",user3.login,user3.password);
+
+
+const dbRef = ref(getDatabase());
+get(child(dbRef, `users/admin`)).then((snapshot) => {
+  if (snapshot.exists()) {
+    console.log(snapshot.val());
+  } else {
+    console.log("No data available");
+  }
+}).catch((error) => {
+  console.error(error);
+});
 
 
 
+
+
+
+// ============================================================================
 var CryptoJS = require("crypto-js");
 
 console.log("1234567")
@@ -41,18 +95,6 @@ barcodeForm.addEventListener("submit", e => {
 
 //-----------------------------------------------------------------------
 
-const user1 = {
-  login : "johncarmack",
-  password : "carmack123" 
-};
-const user2 = {
-  login : "johnromero",
-  password : "romero123" 
-};
-const user3 = {
-  login : "jamesgosling",
-  password : "gosling123" 
-};
 
 
 const user1Ecrypt = CryptoJS.AES.encrypt(JSON.stringify(user1), 'dagon1').toString();

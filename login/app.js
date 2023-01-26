@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getDatabase,ref,set,child,get } from "firebase/database";
-import {firebaseConfig} from "../data"
+// import {firebaseConfig} from "../data"
 
 const user1 = {
   login : "johncarmack",

@@ -1,54 +1,78 @@
 import { initializeApp } from "firebase/app";
 import { getDatabase,ref,set,child,get } from "firebase/database";
 import {firebaseConfig} from "../config"
+var CryptoJS = require("crypto-js");
 
-const user1 = {
-  login : "johncarmack",
-  password : "carmack123" 
-};
-const user2 = {
-  login : "johnromero",
-  password : "romero123" 
-};
-const user3 = {
-  login : "jamesgosling",
-  password : "gosling123" 
-};
+console.log("1234567")
+let barcodeForm = document.querySelector(".barcode-form")
+let passwordForm = document.querySelector(".password-form")
+let checkboxSwitch = document.querySelector(".checkbox-switch")
 
-
-// Initialize Firebase
+//******************************************************************************* */
 const app = initializeApp(firebaseConfig);
 
-
-// Initialize Realtime Database and get a reference to the service
 const database = getDatabase(app);
+
+passwordForm.addEventListener('submit',(e)=>{ 
+  e.preventDefault();
+  let loginInp = document.querySelector(".login").value
+  let passInp = document.querySelector(".password").value
+  const dbRef = ref(getDatabase());
+    get(child(dbRef, `users/`)).then((snapshot) => {
+      if (snapshot.exists()) {
+        console.log(snapshot.val());
+        const dataUsers = snapshot.val()
+        console.log(loginInp);
+        console.log(passInp);
+        console.log(dataUsers)
+        for(var k in dataUsers){
+          if ((dataUsers[k].login == loginInp) && (dataUsers[k].password == passInp))
+          {
+            console.log("brawo Jasiu dobry login")
+            document.cookie = "logged = yes";
+            localStorage.clear();
+            window.location.replace("../pick/panel.htm");
+          }
+          else if ((dataUsers[k].login != loginInp) && (dataUsers[k].password != passInp)) 
+          {
+            console.log("złe dane, popraw!")
+          }
+        }
+      } else {
+        console.log("No data available");
+      }
+    }).catch((error) => {
+      console.error(error);
+    });
+})
+
 
 // console.log(firebaseConfig)
 
-function writeUserData(userId, login,password) {
-  const db = getDatabase();
-  set(ref(db, 'users/' + userId), {
-    login: login,
-    password: password
-  });
-}
+// function writeUserData(userId, login,password) {
+//   const db = getDatabase();
+//   set(ref(db, 'users/' + userId), {
+//     login: login,
+//     password: password
+//   });
+// }
 
-writeUserData("admin","admin","admin123")
-writeUserData("user1",user1.login, user1.password);
-writeUserData("user2",user2.login, user2.password);
-writeUserData("user3",user3.login,user3.password);
+// writeUserData("admin","admin","admin123")
+// writeUserData("user1",user1.login, user1.password);
+// writeUserData("user2",user2.login, user2.password);
+// writeUserData("user3",user3.login,user3.password);
 
 
-const dbRef = ref(getDatabase());
-get(child(dbRef, `users/admin`)).then((snapshot) => {
-  if (snapshot.exists()) {
-    console.log(snapshot.val());
-  } else {
-    console.log("No data available");
-  }
-}).catch((error) => {
-  console.error(error);
-});
+// const dbRef = ref(getDatabase());
+// get(child(dbRef, `users/`)).then((snapshot) => {
+//   if (snapshot.exists()) {
+//     console.log(snapshot.val());
+//   } else {
+//     console.log("No data available");
+//   }
+// }).catch((error) => {
+//   console.error(error);
+// });
 
 
 
@@ -56,12 +80,6 @@ get(child(dbRef, `users/admin`)).then((snapshot) => {
 
 
 // ============================================================================
-var CryptoJS = require("crypto-js");
-
-console.log("1234567")
-let barcodeForm = document.querySelector(".barcode-form")
-let passwordForm = document.querySelector(".password-form")
-let checkboxSwitch = document.querySelector(".checkbox-switch")
 
 checkboxSwitch.addEventListener('click',()=>{
     if (checkboxSwitch.checked == true){

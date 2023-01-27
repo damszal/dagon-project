@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getDatabase,ref,set,child,get } from "firebase/database";
-// import {firebaseConfig} from "../data"
+import {firebaseConfig} from "../config"
 
 const user1 = {
   login : "johncarmack",
@@ -15,6 +15,7 @@ const user3 = {
   password : "gosling123" 
 };
 
+
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
@@ -22,7 +23,7 @@ const app = initializeApp(firebaseConfig);
 // Initialize Realtime Database and get a reference to the service
 const database = getDatabase(app);
 
-console.log(firebaseConfig)
+// console.log(firebaseConfig)
 
 function writeUserData(userId, login,password) {
   const db = getDatabase();

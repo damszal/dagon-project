@@ -3,6 +3,8 @@
     display: inline-block;
     width: 60px;
     height: 34px;
+    margin-bottom: 0;
+    margin-right: 1rem;
   }
   
   /* Hide default HTML checkbox */
@@ -20,7 +22,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #ccc;
+    background-color: #666;
     -webkit-transition: .4s;
     transition: .4s;
   }

@@ -1,4 +1,5 @@
 import moment from 'moment';
+import IdleJs from "idle-js";
 
 const logOut = document.querySelector('.logOut')
 const scanBtn = document.querySelector('.scan-btn')
@@ -10,6 +11,23 @@ const iDescription = document.querySelector('.item-description')
 const iCode = document.querySelector('.item-code')
 const iProperty = document.querySelector('.item-property')
 const img = document.querySelector(".i-img")
+
+//idle =======================================================================================================================
+var idle = new IdleJs({
+    idle: 10000, // idle time in ms
+    events: ['mousemove', 'keydown', 'mousedown', 'touchstart'], // events that will trigger the idle resetter
+    onIdle: function () {
+        localStorage.removeItem("item")
+        localStorage.setItem('loginOutData', moment().format('LLLL'))
+        window.location.replace("/logouted.htm");
+    }, // callback function to be executed after idle time
+    onActive: function () {}, // callback function to be executed after back form idleness
+    onHide: function () {}, // callback function to be executed when window become hidden
+    onShow: function () {}, // callback function to be executed when window become visible
+    keepTracking: true, // set it to false if you want to be notified only on the first idleness change
+    startAtIdle: false // set it to true if you want to start in the idle state
+  });
+  idle.start();
 
 
 logOut.addEventListener('click', (e)=>{

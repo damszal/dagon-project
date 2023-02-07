@@ -5703,10 +5703,10 @@ const iDescription = document.querySelector('.item-description');
 const iCode = document.querySelector('.item-code');
 const iProperty = document.querySelector('.item-property');
 const img = document.querySelector(".i-img");
-
+let pickSectionDisplay = document.querySelector('.pick-section');
 //idle =======================================================================================================================
 var idle = new _idleJs.default({
-  idle: 10000,
+  idle: 10000000,
   // idle time in ms
   events: ['mousemove', 'keydown', 'mousedown', 'touchstart'],
   // events that will trigger the idle resetter
@@ -5734,10 +5734,12 @@ logOut.addEventListener('click', e => {
   window.location.replace("/logouted.htm");
 });
 
+//************************************************************************ */
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 window.addEventListener('DOMContentLoaded', e => {
   fetch("http://localhost:3000/topick").then(res => res.json()).then(res => {
+    pickSectionDisplay.style.display = 'flex';
     qToPick.innerHTML = 3;
     iCode.innerHTML = res[0].itemName;
     iDescription.innerHTML = res[0].itemCategory;
@@ -5760,54 +5762,11 @@ window.addEventListener('DOMContentLoaded', e => {
         // img.src = res[counter].img
       }
     });
-  });
+  }).catch(error => console.log("Błąd: ", error));
 });
 
 // ***************************************************************************
 
-// const order1 = {
-//     toPick : 5,
-//     description : "mata fitness",
-//     code : "TPE 0,6cm",
-//     property : "jasnoniebieska",
-//     img: "assets/tpe0-6.jpg",
-// };
-
-// const order2 = {
-//     toPick : 3,
-//     description : "mata fitness",
-//     code : "NBR 1,5cm",
-//     property : "żółta",
-//     img: "assets/nbr1-5.jpg",
-
-// }
-
-// const order3 = {
-//     toPick : 3,
-//     description : "mata fitness",
-//     code : "NBR 1,5cm",
-//     property : "z otworami czarna",
-//     img: "assets/nbr1-5z-otworami.jpg",
-
-// }
-// const orders = [order1,order2,order3]
-
-// let counter = 0; 
-
-// scanBtn.addEventListener('click', (e)=> {
-//     e.preventDefault;
-//     picked.innerHTML++
-//     if (picked.innerHTML == qToPick.innerHTML) {
-//         picked.innerHTML = 0 
-//         iDescription.innerHTML = orders[counter++].description;
-//         iCode.innerHTML = orders[counter].code;
-//         iProperty.innerHTML = orders[counter].property
-//         qToPick.innerHTML = orders[counter].toPick;
-//         img.src = orders[counter].img
-//     }
-// })
-
-//*********************************************************************
 // TEMPORARY SOUND EFFECT
 
 function playError() {

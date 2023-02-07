@@ -20,15 +20,7 @@ function rmLocStorDat(){ // REMOVE LOCAL SOTRAGE ITEMS
   localStorage.removeItem("loginOutData")
 }
 
-rmLocStorDat()
-
-// forms actions related to firebase 
-const app = initializeApp(firebaseConfig);
-
-const database = getDatabase(app);
-
-passwordForm.addEventListener('submit',(e)=>{ 
-  e.preventDefault();
+function loginByPassword (){
   let loginInp = document.querySelector(".login").value
   let passInp = document.querySelector(".password").value
   const dbRef = ref(getDatabase());
@@ -54,6 +46,43 @@ passwordForm.addEventListener('submit',(e)=>{
     }).catch((error) => {
       console.error(error);
     });
+}
+
+function loginByBarcode() {
+  const dbRef = ref(getDatabase());
+  get(child(dbRef, `users/`)).then((snapshot) => {
+    if (snapshot.exists()) {
+      const dataUsers = snapshot.val()
+      for(var k in dataUsers){
+        if (dataUsers[k].barcode == barcodeForm[0].value) 
+        {
+          console.log("login = true")
+          document.cookie = "logged = yes";
+          localStorage.clear();
+          window.location.replace("../pick/panel.htm");
+        }
+        else if (dataUsers[k].barcode != barcodeForm[0].value) 
+        {
+          console.log("login = false")
+        }
+      }
+    } else {
+      console.log("No data available");
+    }
+  }).catch((error) => {
+    console.error(error);
+  });
+}
+rmLocStorDat()
+
+// forms actions related to firebase 
+const app = initializeApp(firebaseConfig);
+
+const database = getDatabase(app);
+
+passwordForm.addEventListener('submit',(e)=>{ 
+  e.preventDefault();
+  loginByPassword();
 })
 
 
@@ -74,20 +103,10 @@ checkboxSwitch.addEventListener('click',()=>{
 const logiInDate = moment().format('LLLL');
 
 
-const barcodeExamp = {
-  barcode : 1234567,
-}
-
 
 barcodeForm.addEventListener("submit", e => {
   e.preventDefault();
-  if(barcodeForm[0].value == barcodeExamp.barcode) 
-  {
-    document.cookie = "logged = yes";
-    localStorage.clear();
-    localStorage.setItem('loginData', moment().format('LLLL'))
-    window.location.replace("../pick/panel.htm");
-  }
+  loginByBarcode();
 }
 );
 

@@ -5704,6 +5704,7 @@ const iCode = document.querySelector('.item-code');
 const iProperty = document.querySelector('.item-property');
 const img = document.querySelector(".i-img");
 let pickSectionDisplay = document.querySelector('.pick-section');
+
 //idle =======================================================================================================================
 var idle = new _idleJs.default({
   idle: 10000000,

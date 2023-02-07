@@ -1,3 +1,5 @@
+import moment from 'moment';
+
 const logOut = document.querySelector('.logOut')
 const scanBtn = document.querySelector('.scan-btn')
 const errBtn = document.querySelector(".error-btn")
@@ -9,8 +11,10 @@ const iCode = document.querySelector('.item-code')
 const iProperty = document.querySelector('.item-property')
 const img = document.querySelector(".i-img")
 
+
 logOut.addEventListener('click', (e)=>{
     localStorage.removeItem("item")
+    localStorage.setItem('loginOutData', moment().format('LLLL'))
     window.location.replace("/logouted.htm");
 
 })

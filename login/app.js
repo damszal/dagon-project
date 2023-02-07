@@ -4,6 +4,8 @@ import { initializeApp } from "firebase/app";
 import { getDatabase,ref,set,child,get } from "firebase/database";
 import {firebaseConfig} from "../config";
 import { user1,user2,user3 } from "./users";
+import moment from 'moment';
+
 // modular include
 var CryptoJS = require("crypto-js");
 
@@ -11,6 +13,14 @@ var CryptoJS = require("crypto-js");
 let barcodeForm = document.querySelector(".barcode-form")
 let passwordForm = document.querySelector(".password-form")
 let checkboxSwitch = document.querySelector(".checkbox-switch")
+
+// functions
+function rmLocStorDat(){ // REMOVE LOCAL SOTRAGE ITEMS
+  localStorage.removeItem("loginData")
+  localStorage.removeItem("loginOutData")
+}
+
+rmLocStorDat()
 
 // forms actions related to firebase 
 const app = initializeApp(firebaseConfig);
@@ -59,7 +69,11 @@ checkboxSwitch.addEventListener('click',()=>{
       }
     } )
 
-// correct barcode 
+// correct barcode ***********************
+
+const logiInDate = moment().format('LLLL');
+
+
 const barcodeExamp = {
   barcode : 1234567,
 }
@@ -71,6 +85,7 @@ barcodeForm.addEventListener("submit", e => {
   {
     document.cookie = "logged = yes";
     localStorage.clear();
+    localStorage.setItem('loginData', moment().format('LLLL'))
     window.location.replace("../pick/panel.htm");
   }
 }

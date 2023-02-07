@@ -5,11 +5,14 @@
     "firebase": "^9.16.0",
     "firebaseui": "^6.0.2",
     "json-server": "^0.17.1",
+    "moment": "^2.29.4",
     "uniqid": "^5.4.0"
   },
   "scripts": {
     "buildrec": "browserify receive/input.js -o receive/bundle.js",
     "buildlogin": "browserify login/app.js  -p esmify > login/bundle.js",
+    "buildpanel": "browserify pick/panel.js  -p esmify > pick/panel-bundle.js",
+
     "datalive": "json-server --watch db.json"
   },
   "devDependencies": {

@@ -57,19 +57,53 @@ window.addEventListener('DOMContentLoaded', (e) => {
             
             let counter = 0; 
 
+            console.log(res)
+            console.log(res.length)
+            console.log()
+
             scanBtn.addEventListener('click', (e)=> {
                 e.preventDefault;
-                picked.innerHTML++
-                if (picked.innerHTML == qToPick.innerHTML) {
-                    picked.innerHTML = 0 
-                    counter++
+                console.log(counter)
+                if (picked.innerHTML < qToPick.innerHTML) {
+                    picked.innerHTML++
+                }
+                if(picked.innerHTML == qToPick.innerHTML){
+                     picked.innerHTML = 0 
+                     counter++
+                     iDescription.innerHTML = res[counter].itemCategory;
+                     iCode.innerHTML = res[counter].itemName;
+                     iProperty.innerHTML = res[counter].itemDescription
+                     // LINK QUANTITY NUMBER WITH DATABASE
+                     qToPick.innerHTML = 2; 
+                }
+                //!!!! find a better solution for detecting last item in the last object and error handl
+                if ((counter == res.length-1)&& (picked.innerHTML == qToPick.innerHTML-1)) {
+                    counter = 0;
                     iDescription.innerHTML = res[counter].itemCategory;
                     iCode.innerHTML = res[counter].itemName;
                     iProperty.innerHTML = res[counter].itemDescription
-                    qToPick.innerHTML = 2;
-                    //qToPick.innerHTML = res[counter].toPick;
-                    // img.src = res[counter].img
+                    
+                    // LOOPING ORDERS 
+                    // console.log("end of queue")
+                    // counter = 0;
+                    // iDescription.innerHTML = res[counter].itemCategory;
+                    // iCode.innerHTML = res[counter].itemName;
+                    // iProperty.innerHTML = res[counter].itemDescription;
+                    // qToPick.innerHTML = 3;
                 }
+
+                // THE OLD VERSION 
+                // if (picked.innerHTML == qToPick.innerHTML) {
+                //     picked.innerHTML = 0 
+                //     counter++
+                //     iDescription.innerHTML = res[counter].itemCategory;
+                //     iCode.innerHTML = res[counter].itemName;
+                //     iProperty.innerHTML = res[counter].itemDescription
+                //     qToPick.innerHTML = 2;
+
+                //     //qToPick.innerHTML = res[counter].toPick;
+                //     // img.src = res[counter].img
+                // }
             })
         })
     .catch(error => console.log("Błąd: ", error));
